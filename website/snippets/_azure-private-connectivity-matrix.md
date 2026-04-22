@@ -36,7 +36,7 @@ Your services can connect to <Constant name="dbt" /> over private connectivity u
 | Databricks | ✅ | ✅ | [View](/docs/cloud/secure/private-connectivity/azure/azure-databricks) |
 | Azure Database for PostgreSQL Flexible Server | ✅ | ✅ | [View](/docs/cloud/secure/private-connectivity/azure/azure-postgres) |
 | Azure Synapse | ✅ | ✅ | [View](/docs/cloud/secure/private-connectivity/azure/azure-synapse) |
-| Azure Fabric | ❌ | ❌ | |
+| Azure Fabric | ✅ | ✅ | [View](/docs/cloud/secure/private-connectivity/azure/azure-fabric) |
 | Teradata VantageCloud | ✅ | ✅ | |
 
 ---
