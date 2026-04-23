@@ -404,7 +404,7 @@ To configure OneLogin, you will need **Administrator** access.
    - **ACS (Consumer) URL Validator:** `https://YOUR_AUTH0_URI/login/callback?connection=<login URL slug>`
    - **ACS (Consumer) URL:** `https://YOUR_AUTH0_URI/login/callback?connection=<login URL slug>`
 
-4. Next, go to the **Parameters tab**. You must have a parameter for the Email, First Name, and Last Name attributes and include all parameters in the SAML assertions. When you add the custom parameters, make sure you select the **Include in SAML assertion** checkbox.
+4. Next, go to the **Parameters tab**. You must have a parameter for the Email, First Name, and Last Name attributes and include all parameters in the SAML assertions. When you add the custom parameters, make sure you select the **Include in SAML assertion** checkbox, and ensure that the casing and format matches exactly as seen in the following table. 
 
 We recommend using the following values:
 
@@ -497,3 +497,5 @@ The **Single sign-on** section also contains additional configuration options wh
 ### Setting up RBAC
 
 After configuring an identity provider, you will be able to set up [role-based access control](/docs/cloud/manage-access/enterprise-permissions) for your account.
+
+For common questions and troubleshooting — including "Access Denied" after SAML authentication, ACS URL or Entity ID changes, and email verification issues — refer to [SSO FAQs and troubleshooting](/docs/cloud/manage-access/sso-faq).
