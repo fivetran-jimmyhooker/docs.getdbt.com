@@ -121,12 +121,14 @@ If you are planning to set up the same Snowflake account to different <Constant 
 
 ## Subdomain migration
 
-If you're a [multi-tenant account](/docs/platform/about-platform/access-regions-ip-addresses) being migrated to a static subdomain, you may need to take additional action in your Snowflake account to prevent service disruptions.
+If your account has been assigned a static subdomain for the access URL migration, you may need to update Snowflake security integrations that are shared across projects or connections to prevent service disruptions. An additional OAuth redirect URI is needed for connections created after the migration. You will find the redirect URI on the connection's settings page if the connection was created after the migration, or reference [API access URLs](/docs/dbt-apis/overview). Alter your existing security integrations to add the redirect URI.
 
-Snowflake limits each security integration (`CREATE SECURITY INTEGRATION … TYPE = OAUTH`) to a single redirect URI. If you configured your OAuth integration with `cloud.getdbt.com`, you must take one of two courses of action: 
+```
+ALTER SECURITY INTEGRATION IF EXISTS [INTEGRATION-NAME]
+SET OAUTH_ALTERNATE_REDIRECT_URIS = ('[ACCESS_URL]/snowflake/complete')
+```
 
-- **Configure an additional security integration:** In your Snowflake account, you will have one with the original URL (for example, `cloud.getdbt.com/complete/snowflake`) as the redirect URI, and another using the new static subdomain. Refer to our [regions & IP addresses page](/docs/platform/about-platform/access-regions-ip-addresses) for a complete list of the original domains in your region (marked as "multi-tenant" on the chart).
-- **Use a single security integration:** Create one that uses the new static subdomain as the redirect URI. In this scenario, you must recreate all of your [existing connections](/docs/platform/connect-data-platform/about-connections#connection-management).
+Note: Values for `OAUTH_REDIRECT_URI` and `OAUTH_ALTERNATE_REDIRECT_URIS` are interchangeable.
 
 ### Troubleshooting
 
